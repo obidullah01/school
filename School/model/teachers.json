@@ -1,1 +1,25 @@
-{"1":{"name":"dfgdf","email":"sdfsdf@gmail.com","phone":"000000000"}}
+{
+    "teacher": [
+        {
+            "name": "Sheck Obidullah"
+        },
+        {
+            "name": "Snigdho Dip"
+        },
+        {
+            "name": "Mustafizur Rahman"
+        },
+        {
+            "name": "Shamil"
+        },
+        {
+            "name": "Bappi"
+        },
+        {
+            "name": "yousuf"
+        },
+        {
+            "name": "jfjsdf"
+        }
+    ]
+}

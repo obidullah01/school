@@ -51,22 +51,25 @@ if (isset($_COOKIE['flag'])) {
 
     ?>
 
-    <form action='<?php echo $_SERVER["PHP_SELF"]; ?>' method="POST">
+    <!-- <form action='<?php echo $_SERVER["PHP_SELF"]; ?>' method="POST"> -->
         <div style="padding:30px; background-color:LightGreen; ">
             <input type="hidden" name="action" value="select_teacher">
-            <select name="t_index" style="width: 30%;">
+            <select name="t_index" style="width: 30%;" id='teacherSelection'>
                 <?php
-                $count = 0;
-                foreach ($teachersArray as $teacher) {
-                    echo '<option name="t_index" value=' . $count . '>' . $teacher->name . '</option>';
-                    $count++;
-                }
+                // $count = 0;
+                // foreach ($teachersArray as $teacher) {
+                //     echo '<option name="t_index" value=' . $count . '>' . $teacher->name . '</option>';
+                //     $count++;
+                // }
                 ?>
+                
+
+
             </select><br>
 
-            <button type="submit">select</button>
+            <button onclick="getTeacherId()">select</button>
         </div>
-    </form>
+    <!-- </form> -->
 
     <div style="
             display:flex;
@@ -74,21 +77,17 @@ if (isset($_COOKIE['flag'])) {
             width: 30%;
             margin: 32px auto;
         ">
-        <form action='<?php echo $_SERVER["PHP_SELF"]; ?>' method="POST">
-            <input type="hidden" name="action" value="edit_teacher">
-            <input type="hidden" name="index" value="<?php echo $selectedIdx; ?>">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" style="margin-bottom: 16px ;" value="<?php echo $selectedName; ?>">
             <label for="email">Email</label>
             <input type="text" name="email" id="email" style="margin-bottom: 16px ;" value="<?php echo $selectedemail; ?>">
             <label for="phone">Phone</label>
             <input type="text" name="phone" id="phone" style="margin-bottom: 16px ;" value="<?php echo $selectedPhone; ?>">
-            <button type="submit">Confirm Changes</button>
-        </form>
-        <!-- <form action='<?php echo $_SERVER["PHP_SELF"]; ?>' method="POST">
-            <input type="hidden" name="action" value="del_teacher">
-            <input type="hidden" name="index" value="<?php echo $selectedIdx; ?>">
-            <button type="submit">Delete Entry</button>
-        </form> -->
+            <button onclick="editTeacher()">Confirm Changes</button>
+            <br>
+            <br>
+            <button onclick="deleteTeacher()">Confirm Deleted</button>
+            <p id="status"></p>
     </div>
+    <script src='../assets/getTeacher.js'></script>
 </body>

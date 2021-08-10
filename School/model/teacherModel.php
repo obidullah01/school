@@ -1,9 +1,11 @@
 <?php
 
+include('../controller/database.php');
+
 function insertTeacher($name, $email, $mobile)
 {
-        $conn=new mysqli("localhost","root","","schooldb");
-        $sql=$conn->prepare("INSERT INTO teachers(name, email, phone) VALUES (?,?,?)");
+        $connection = $GLOBALS['conn'];
+        $sql = $connection->prepare("INSERT INTO teachers(name, email, phone) VALUES (?,?,?)");
 
 
         $sql -> bind_param("sss", $name, $email, $mobile);
@@ -19,11 +21,26 @@ function insertTeacher($name, $email, $mobile)
         }
     }
 
-function getAllTeacher() {
-    $conn=new mysqli("localhost","root","","schooldb");
-    $sql=$conn->prepare("SELECT * FROM teachers");
+    function getAllTeacher() {
+        $connection = $GLOBALS['conn'];
+        $query = 'SELECT * FROM teachers';
+        $result = mysqli_query($connection, $query);
+        return $result;
+    }
 
-    $response = $sql ->execute();
-    return $response;
-}
+    function editTeacher($id, $name, $phone, $email) {
+        $connection = $GLOBALS['conn'];
+        // $query = ;
+        $result = mysqli_query($connection, 'UPDATE teachers SET name=\''.$name.'\', email=\''.$email.'\', phone=\''.$phone.'\' WHERE teachers.id='.(int)$id.'');
+        return $result;
+    }
+
+    function deleteTeacher($id) {
+        $connection = $GLOBALS['conn'];
+        // $query = ;
+        $result = mysqli_query($connection, 'DELETE FROM teachers WHERE teachers.id='.(int)$id.'');
+        return $result;
+    }
+
+
 ?>
