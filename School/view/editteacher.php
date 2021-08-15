@@ -12,8 +12,8 @@ if (isset($_COOKIE['flag'])) {
 
     $selectedName = $selectedemail = $selectedPhone = $selectedIdx = '';
 
-    $teachersDataFile = fopen('../model/teachers.json', 'r') or die("Unable to open file");
-    $teachersArray = json_decode(fread($teachersDataFile, filesize('../model/teachers.json')));
+    // $teachersDataFile = fopen('../model/teachers.json', 'r') or die("Unable to open file");      //json dont nedded
+    // $teachersArray = json_decode(fread($teachersDataFile, filesize('../model/teachers.json')));
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["action"] == "select_teacher") {
@@ -39,9 +39,10 @@ if (isset($_COOKIE['flag'])) {
             $newTeacher->phone = $_POST["phone"];
 
             // $teachersArray[$selectedIdx] = $newTeacher;
-            $editedTeacher = array($_POST['index'] => $newTeacher);
-            $teachersArray = array_replace($teachersArray, $editedTeacher);
-            fwrite(fopen('../model/teachers.json', 'w+'), json_encode($teachersArray));
+            
+            // $editedTeacher = array($_POST['index'] => $newTeacher);
+            // $teachersArray = array_replace($teachersArray, $editedTeacher);         //dont need
+            // fwrite(fopen('../model/teachers.json', 'w+'), json_encode($teachersArray));
         }
         // if ($_POST["action"] == "del_teacher") {
         //     unset($teachersArray[$_POST["index"]]);
@@ -67,7 +68,7 @@ if (isset($_COOKIE['flag'])) {
 
             </select><br>
 
-            <button onclick="getTeacherId()">select</button>
+            <button onclick="getTeacherId()">সিলেক্ট</button>
         </div>
     <!-- </form> -->
 
@@ -77,16 +78,16 @@ if (isset($_COOKIE['flag'])) {
             width: 30%;
             margin: 32px auto;
         ">
-            <label for="name">Name</label>
+            <label for="name">নাম</label>
             <input type="text" name="name" id="name" style="margin-bottom: 16px ;" value="<?php echo $selectedName; ?>">
-            <label for="email">Email</label>
+            <label for="email">ইমেইল</label>
             <input type="text" name="email" id="email" style="margin-bottom: 16px ;" value="<?php echo $selectedemail; ?>">
-            <label for="phone">Phone</label>
+            <label for="phone">মোবাইল</label>
             <input type="text" name="phone" id="phone" style="margin-bottom: 16px ;" value="<?php echo $selectedPhone; ?>">
-            <button onclick="editTeacher()">Confirm Changes</button>
+            <button onclick="editTeacher()">পরিবর্তন কনফার্ম</button>
             <br>
             <br>
-            <button onclick="deleteTeacher()">Confirm Deleted</button>
+            <button onclick="deleteTeacher()">শিক্ষক বাতিল করুন</button>
             <p id="status"></p>
     </div>
     <script src='../assets/getTeacher.js'></script>
