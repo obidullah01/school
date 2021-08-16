@@ -25,9 +25,8 @@ include('sessionCheck.php');
 		<li><a href="editteacher.php"><b>শিক্ষক তথ্য পরিবর্তন করুন</b></a></li><br>
 		<li><a href="addstudent.php"><b>শিক্ষার্থী যোগ করুন</b></a></li><br>
 		<li><a href="editstudent.php"><b>শিক্ষার্থী তথ্যপরিবর্তন করুন</b></a></li><br>
-		<!-- <li><a href="removestudent.php"><b>শিক্ষার্থী বাতিল করুন</b></a></li><br> -->
 		<li><a href="addsubject.php"><b>পাঠ্য বিষয় যোগ করুন</b></a></li><br>
-		<li><a href="removesubject.php"><b>পাঠ্য বিষয় বাতিল করুন</b></a></li><br>
+		<li><a href="editsubject.php"><b>পাঠ্য বিষয় এডিট করুন</b></a></li><br>
 		<li><a href="addnotice.php"><b>নোটিশ যোগ করুন</b></a></li><br>
 		<li><a href="makeroutine.php"><b>রুটিন বানান</b></a></li><br>
 		<li><a href="editroutine.php"><b>রুটিন আপডেট করুন</b></a><br><br>
@@ -42,4 +41,8 @@ include('sessionCheck.php');
 
 	</ul>
 
-</div>
+
+<?php
+
+  include('footer.php');
+  ?></div>

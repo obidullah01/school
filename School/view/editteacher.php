@@ -89,6 +89,10 @@ if (isset($_COOKIE['flag'])) {
             <br>
             <button onclick="deleteTeacher()">শিক্ষক বাতিল করুন</button>
             <p id="status"></p>
-    </div>
+    
     <script src='../assets/getTeacher.js'></script>
 </body>
+<?php
+
+  include('footer.php');
+  ?></div>

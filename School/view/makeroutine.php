@@ -66,6 +66,10 @@
                 <td>PHYSICS</td>
             </tr>
         </table>
-    </div>
+    
 </body>
 </html>
+<?php
+
+  include('footer.php');
+  ?></div>

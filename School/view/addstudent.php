@@ -68,9 +68,13 @@
 
   <div align="right">
     <button style="margin:30px; margin-right:20%;" type="submit" name="button" class="btn btn-info" value="button" onclick="window.location.href = 'admin_home.php';">এডমিন পেজে যান</button>
-  </div>
+  
   <script src="../assets/addStudent.js"></script>
 
 </body>
 
 </html>
+<?php
+
+  include('footer.php');
+  ?></div>

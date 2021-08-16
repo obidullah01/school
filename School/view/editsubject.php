@@ -82,6 +82,10 @@ if (isset($_COOKIE['flag'])) {
             <br>
             <button onclick="deleteSubject()">বিষয় বাতিল করুন</button>
             <p id="status"></p>
-    </div>
+    
     <script src='../assets/getSubject.js'></script>
 </body>
+<?php
+
+  include('footer.php');
+  ?></div>
